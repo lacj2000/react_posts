@@ -1,5 +1,5 @@
 import Post from "../Post";
-
+import "./styles.css"
 
 const Posts = ({ posts }) => (
     <div className="posts">

@@ -1,11 +1,14 @@
+import "./styles.css"
 
+const Button = ({ text, onClick, disabled }) => (
+    <button
+        className="button"
+        onClick={onClick}
+        disabled={disabled}
+    >
+        {text}
+    </button>
+)
 
-const Button = ({ text, onClick }) => {
-    return (
-        <Button onClick={onClick}>
-            {text}
-        </Button>
-    )
-}
 
 export default Button;

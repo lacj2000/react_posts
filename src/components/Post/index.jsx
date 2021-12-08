@@ -1,3 +1,5 @@
+import './styles.css'
+
 const Post = ({ url, title, body }) => (
     <div className="post">
         <img src={url} alt={title} />

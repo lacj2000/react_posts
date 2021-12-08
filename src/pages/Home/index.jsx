@@ -12,7 +12,7 @@ class Home extends Component {
         posts: [],
         allPosts: [],
         page: 0,
-        postsPerPage: 10,
+        postsPerPage: 20,
     };
 
     componentDidMount() {
@@ -34,26 +34,41 @@ class Home extends Component {
 
     loadMorePosts = () => {
         const {
+            allPosts,
             posts,
             postsPerPage,
-            page
+            page,
         } = this.state;
         const nextPage = page + postsPerPage;
-        const nextPosts = posts.slice(nextPage, nextPage + postsPerPage);
+        const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage);
 
         posts.push(...nextPosts);
         this.setState({ posts, page: nextPage });
     }
 
+    hasMorePosts = () => {
+        const { posts, allPosts } = this.state;
+        return (posts.length >= allPosts.length);
+    }
+
     render() {
         const { posts } = this.state;
+        const hasMorePosts = this.hasMorePosts();
         return (
             <section className="container">
                 <Posts posts={posts}></Posts>
-                <Button text="Load more posts" onClick={() => { console.log("click") }} />
+                <div className='button-container'>
+                    <Button
+                        text="Load more posts..."
+                        disabled={hasMorePosts}
+                        onClick={this.loadMorePosts}
+                    />
+
+                </div>
             </section>
         );
     }
+
 }
 
 export default Home;
