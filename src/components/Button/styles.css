@@ -5,5 +5,12 @@
     color: white;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+}
+
+.button:disabled {
+    background-color: #a3a3a3;
 }
