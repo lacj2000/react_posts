@@ -9,6 +9,7 @@ import "./styles.css";
 
 class Home extends Component {
     state = {
+        searchValue: "",
         posts: [],
         allPosts: [],
         page: 0,
@@ -51,20 +52,49 @@ class Home extends Component {
         return (posts.length >= allPosts.length);
     }
 
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
     render() {
-        const { posts } = this.state;
+        const { allPosts, posts, searchValue } = this.state;
+
         const hasMorePosts = this.hasMorePosts();
+        const listenPosts = !!searchValue ?
+            allPosts.filter(
+                post => {
+                    return (
+                        (post.title.toLowerCase().includes(searchValue.toLowerCase()))
+                        ||
+                        (post.body.toLowerCase().includes(searchValue.toLowerCase()))
+                    );
+                }) :
+            posts;
+
         return (
             <section className="container">
-                <Posts posts={posts}></Posts>
-                <div className='button-container'>
-                    <Button
-                        text="Load more posts..."
-                        disabled={hasMorePosts}
-                        onClick={this.loadMorePosts}
+                {!!searchValue &&
+                    <h3>Searching for: {searchValue}</h3>
+                }
+                <div className="input-container">
+                    <input
+                        name="searchValue"
+                        type="search"
+                        value={searchValue}
+                        onChange={this.handleChange}
                     />
-
                 </div>
+                <Posts posts={listenPosts}></Posts>
+
+                {!searchValue &&
+                    <div className="button-container">
+                        <Button
+                            text="Load more posts..."
+                            disabled={hasMorePosts}
+                            onClick={this.loadMorePosts}
+                        />
+                    </div>
+                }
             </section>
         );
     }

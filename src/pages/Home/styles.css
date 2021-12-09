@@ -1,18 +1,20 @@
 
-
 .container {
     /* max-width: 1200px; */
     margin: 0 auto;
     height: 100%;
+    min-height: 100vh;
     background-color: #eee;
     padding: 30px;
     
 }
 
-
-
-.button-container{
+.button-container {
     height: 100px;
-    display: flex;
     align-items: flex-end;
+    display: flex;
+}
+
+.input-container {
+    height: 60px;
 }
