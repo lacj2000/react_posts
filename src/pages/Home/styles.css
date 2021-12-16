@@ -15,6 +15,11 @@
     display: flex;
 }
 
-.input-container {
+.search-container {
     height: 60px;
 }
+
+.search-container h1 {
+    margin-bottom: 20px;
+}
+
