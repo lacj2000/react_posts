@@ -1,6 +1,6 @@
 import "./styles.css"
 
-const Button = ({ text, onClick, disabled }) => (
+const Button = ({ text, onClick, disabled=false }) => (
     <button
         className="button"
         onClick={onClick}
