@@ -61,11 +61,8 @@ const Home = () => {
             }
             <div className="search-container">
                 <TextInput
-                    name="searchValue"
-                    type="search"
                     value={searchValue}
                     onChange={handleChange}
-                    placeholder="Enter your search..."
                 />
             </div>
             {listedPosts.length > 0 ?

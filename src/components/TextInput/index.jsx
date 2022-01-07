@@ -1,15 +1,15 @@
 import React from 'react';
 import './styles.css';
 
-const TextInput = ({ type, name, onChange, value, placeholder = '...' }) => {
+const TextInput = ({ onChange, value }) => {
     return (
         <input
             className="text-input"
-            name={name}
-            type={type}
+            name="searchValue"
+            type="search"
             value={value}
             onChange={onChange}
-            placeholder={placeholder}
+            placeholder="Enter your search..."
         />
     )
 }

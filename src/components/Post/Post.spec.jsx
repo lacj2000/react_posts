@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
-import Post from "."
 import { postPropsMock } from "./mock"
+import Post from "."
 
 const props = postPropsMock
 
