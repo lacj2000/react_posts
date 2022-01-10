@@ -1,3 +1,4 @@
+import P from 'prop-types';
 import './styles.css';
 
 const Post = ({ url, title, body }) => (
@@ -9,5 +10,11 @@ const Post = ({ url, title, body }) => (
     </div>
   </div>
 );
+
+Post.propTypes = {
+  url: P.string.isRequired,
+  title: P.string.isRequired,
+  body: P.string.isRequired,
+};
 
 export default Post;

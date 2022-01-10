@@ -1,4 +1,5 @@
 import React from 'react';
+import P from 'prop-types';
 import './styles.css';
 
 const TextInput = ({ onChange, value }) => {
@@ -12,6 +13,11 @@ const TextInput = ({ onChange, value }) => {
       placeholder="Enter your search..."
     />
   );
+};
+
+TextInput.propTypes = {
+  onChange: P.func.isRequired,
+  value: P.string.isRequired,
 };
 
 export default TextInput;
